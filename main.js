@@ -1,8 +1,14 @@
 const signalR = require("@microsoft/signalr");
 const five = require("johnny-five");
 const board = new five.Board();
+const Oled = require('oled-js');
 
 const PIN_PIEZO = 11;
+const OLED_OPTS = {
+    width: 128,
+    height: 32,
+    address: 0x3C // see https://github.com/noopkat/oled-js how to determine the address
+};
 
 const CONTRACT_ADDRESS = "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"; // Hic et Nunc Marketplace
 
@@ -41,6 +47,36 @@ board.on("ready", () => {
         ["F4", 1],
         [null, 1 / 2]
     ], 100);
+
+    // testing the display 
+    const oled = new Oled(board, five, OLED_OPTS);
+    setTimeout(() => {
+        oled.clearDisplay();
+        oled.update();
+        // oled.setCursor(0, 0);
+        // oled.drawRect(2, 2, 123, 27, 1);
+        // oled.drawRect(5, 5, 117, 21, 1);
+        oled.drawRect(8, 8, 111, 13, 1);
+        // oled.drawRect(11, 11, 113, 17, 1);
+        // oled.invertDisplay(true);
+        oled.update();
+        // oled.drawRect(10, 10, OLED_OPTS.width - 20, OLED_OPTS.height - 10, 1);
+        for (let i = 0; i < 16; i++) {
+            // oled.drawRect(i+1, i+1, OLED_OPTS.width - (i+1), OLED_OPTS.height - (i+1), 1);
+            // oled.drawCircle(Math.floor(Math.random() * OLED_OPTS.width), Math.floor(Math.random() * OLED_OPTS.height), Math.floor(Math.random() * 30), 1);
+        }
+    }, 5000)
+
+    // testing the servo 
+    // https://johnny-five.io/api/servo/
+    const servo = new five.Servo(10);
+    setTimeout(() => {
+        servo.home();
+        servo.sweep();
+    }, 8000)
+    setTimeout(() => {
+        servo.stop();
+    }, 16000)
 
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("https://api.tzkt.io/v1/events")

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/i3games/gm#readme",
   "dependencies": {
     "@microsoft/signalr": "^6.0.0",
-    "johnny-five": "^2.1.0"
+    "johnny-five": "^2.1.0",
+    "oled-js": "^5.1.2"
   }
 }
