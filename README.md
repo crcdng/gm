@@ -20,6 +20,9 @@ To test collecting, you need a Tezos wallet - I am using [Temple](https://temple
 
 ![](assets/physical_setup.jpg)
 
+Wiring
+
+![](assets/arduino_schema.jpg)
 
 ### Parts list
 
