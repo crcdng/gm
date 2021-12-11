@@ -25,58 +25,9 @@ function playMelody(piezo, melody, bpm) {
 
 board.on("ready", () => {
 
-    // testing the piezo
     const piezo = new five.Piezo(PIN_PIEZO);
-    playMelody(piezo, [
-        ["C4", 1 / 4],
-        ["D4", 1 / 4],
-        ["F4", 1 / 4],
-        ["D4", 1 / 4],
-        ["A4", 1 / 4],
-        [null, 1 / 4],
-        ["A4", 1],
-        ["G4", 1],
-        [null, 1 / 2],
-        ["C4", 1 / 4],
-        ["D4", 1 / 4],
-        ["F4", 1 / 4],
-        ["D4", 1 / 4],
-        ["G4", 1 / 4],
-        [null, 1 / 4],
-        ["G4", 1],
-        ["F4", 1],
-        [null, 1 / 2]
-    ], 100);
-
-    // testing the display 
-    const oled = new Oled(board, five, OLED_OPTS);
-    setTimeout(() => {
-        oled.clearDisplay();
-        oled.update();
-        // oled.setCursor(0, 0);
-        // oled.drawRect(2, 2, 123, 27, 1);
-        // oled.drawRect(5, 5, 117, 21, 1);
-        oled.drawRect(8, 8, 111, 13, 1);
-        // oled.drawRect(11, 11, 113, 17, 1);
-        // oled.invertDisplay(true);
-        oled.update();
-        // oled.drawRect(10, 10, OLED_OPTS.width - 20, OLED_OPTS.height - 10, 1);
-        for (let i = 0; i < 16; i++) {
-            // oled.drawRect(i+1, i+1, OLED_OPTS.width - (i+1), OLED_OPTS.height - (i+1), 1);
-            // oled.drawCircle(Math.floor(Math.random() * OLED_OPTS.width), Math.floor(Math.random() * OLED_OPTS.height), Math.floor(Math.random() * 30), 1);
-        }
-    }, 5000)
-
-    // testing the servo 
-    // https://johnny-five.io/api/servo/
     const servo = new five.Servo(10);
-    setTimeout(() => {
-        servo.home();
-        servo.sweep();
-    }, 8000)
-    setTimeout(() => {
-        servo.stop();
-    }, 16000)
+    const oled = new Oled(board, five, OLED_OPTS);
 
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("https://api.tzkt.io/v1/events")
@@ -97,10 +48,8 @@ board.on("ready", () => {
     connection.on("operations", (msg) => {
 
         if (msg.type === 0) {
-            console.log("subscription confirmed");
-        }
-
-        if (msg.type === 1) {
+            console.log(`subscription to contract ${CONTRACT_ADDRESS} confirmed, listening for OBJKT ${OBJKT_ID}`);
+        } else if (msg.type === 1) {
 
             const data = msg.data;
 
@@ -110,9 +59,57 @@ board.on("ready", () => {
                     && entry.diffs[0].content.value.issuer == ACCOUNT       // note that === doesn't work
                     && entry.diffs[0].content.value.objkt_id == OBJKT_ID    // note that === doesn't work
                 ) {
-                    console.log(`Congratulations OBJKT ${OBJKT_ID} got collected by ${entry.sender.address}`);
+                    console.log(`gm! Congratulations! OBJKT ${OBJKT_ID} got collected by ${entry.sender.address}`);
+
+                    playMelody(piezo, [
+                        ["C4", 1 / 4],
+                        ["D4", 1 / 4],
+                        ["F4", 1 / 4],
+                        ["D4", 1 / 4],
+                        ["A4", 1 / 4],
+                        [null, 1 / 4],
+                        ["A4", 1],
+                        ["G4", 1],
+                        [null, 1 / 2],
+                        ["C4", 1 / 4],
+                        ["D4", 1 / 4],
+                        ["F4", 1 / 4],
+                        ["D4", 1 / 4],
+                        ["G4", 1 / 4],
+                        [null, 1 / 4],
+                        ["G4", 1],
+                        ["F4", 1],
+                        [null, 1 / 2]
+                    ], 100);
+
+                    setTimeout(() => {
+                        oled.clearDisplay();
+                        oled.update();
+                        // oled.setCursor(0, 0);
+                        // oled.drawRect(2, 2, 123, 27, 1);
+                        // oled.drawRect(5, 5, 117, 21, 1);
+                        oled.drawRect(8, 8, 111, 13, 1);
+                        // oled.drawRect(11, 11, 113, 17, 1);
+                        // oled.invertDisplay(true);
+                        oled.update();
+                        // oled.drawRect(10, 10, OLED_OPTS.width - 20, OLED_OPTS.height - 10, 1);
+                        for (let i = 0; i < 16; i++) {
+                            // oled.drawRect(i+1, i+1, OLED_OPTS.width - (i+1), OLED_OPTS.height - (i+1), 1);
+                            // oled.drawCircle(Math.floor(Math.random() * OLED_OPTS.width), Math.floor(Math.random() * OLED_OPTS.height), Math.floor(Math.random() * 30), 1);
+                        }
+                    }, 5000);
+
+                    setTimeout(() => {
+                        servo.home();
+                        servo.sweep();
+                    }, 8000)
+                    setTimeout(() => {
+                        servo.stop();
+                    }, 16000)
                 }
             }
+        } else if (msg.type === 2) {
+            console.log(`Chain reorganisation`)
         }
 
     });
