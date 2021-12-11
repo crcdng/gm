@@ -2,13 +2,46 @@ const signalR = require("@microsoft/signalr");
 const five = require("johnny-five");
 const board = new five.Board();
 
+const PIN_PIEZO = 11;
+
 const CONTRACT_ADDRESS = "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"; // Hic et Nunc Marketplace
 
 // parameters to adapt
 const ACCOUNT = "tz1RJaJXwrqyjUtWyXqcybX77yUKHj8j3oyL";  // put your account here
 const OBJKT_ID = "181212";  // put your OBJKT ID here
 
+function playMelody(piezo, melody, bpm) {
+    piezo.play({
+        song: melody,
+        tempo: bpm
+    });
+}
+
 board.on("ready", () => {
+
+    // testing the piezo
+    const piezo = new five.Piezo(PIN_PIEZO);
+    playMelody(piezo, [
+        ["C4", 1 / 4],
+        ["D4", 1 / 4],
+        ["F4", 1 / 4],
+        ["D4", 1 / 4],
+        ["A4", 1 / 4],
+        [null, 1 / 4],
+        ["A4", 1],
+        ["G4", 1],
+        [null, 1 / 2],
+        ["C4", 1 / 4],
+        ["D4", 1 / 4],
+        ["F4", 1 / 4],
+        ["D4", 1 / 4],
+        ["G4", 1 / 4],
+        [null, 1 / 4],
+        ["G4", 1],
+        ["F4", 1],
+        [null, 1 / 2]
+    ], 100);
+
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("https://api.tzkt.io/v1/events")
         .build();
