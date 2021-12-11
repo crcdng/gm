@@ -14,7 +14,12 @@ To install, run
 To start, run
 `node main.js`
 
-To test collecting, you need a Tezos wallet - I am using [Temple](https://templewallet.com/). I made an NFT for that https://hicetnunc.art/objkt/181212 (0.01 Tez) but you can use any OBJKT you want of course. Note this transaction happens on Mainnet, so you are actually collecting the NFT.  
+To test collecting, you need a Tezos wallet - I am using [Temple](https://templewallet.com/). I made an NFT for that https://hicetnunc.art/objkt/181212 (0.01 tez) but you can use any OBJKT you want of course. Note this transaction happens on Mainnet, so you are actually collecting the NFT.  
+
+### Physical Setup
+
+![](assets/physical_setup.jpg)
+
 
 ### Parts list
 
