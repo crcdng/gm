@@ -1,0 +1,20 @@
+{
+  "name": "gm",
+  "version": "1.0.0",
+  "description": "Connecting the virtual and physical metaverse in a playful manner.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i3games/gm.git"
+  },
+  "keywords": ["metaverse", "arduino", "tezos"],
+  "author": "crcdng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i3games/gm/issues"
+  },
+  "homepage": "https://github.com/i3games/gm#readme"
+}
