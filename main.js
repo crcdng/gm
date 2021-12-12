@@ -59,7 +59,10 @@ board.on("ready", () => {
                     && entry.diffs[0].content.value.issuer == ACCOUNT       // note that === doesn't work
                     && entry.diffs[0].content.value.objkt_id == OBJKT_ID    // note that === doesn't work
                 ) {
-                    console.log(`gm! Congratulations! OBJKT ${OBJKT_ID} got collected by ${entry.sender.address}`);
+                    const consoleMsg = `gm! Congratulations! OBJKT ${OBJKT_ID} got collected by ${entry.sender.address}`;
+                    console.log(collectMsg);
+                    // shorter message for 128x32 display
+                    const displayMsg = `gm! OBJKT ${OBJKT_ID}/ ${entry.sender.address}`;
 
                     playMelody(piezo, [
                         ["C4", 1 / 4],
@@ -85,18 +88,8 @@ board.on("ready", () => {
                     setTimeout(() => {
                         oled.clearDisplay();
                         oled.update();
-                        // oled.setCursor(0, 0);
-                        // oled.drawRect(2, 2, 123, 27, 1);
-                        // oled.drawRect(5, 5, 117, 21, 1);
-                        oled.drawRect(8, 8, 111, 13, 1);
-                        // oled.drawRect(11, 11, 113, 17, 1);
-                        // oled.invertDisplay(true);
+                        oled.writeString(font, 1, displayMsg, 1, true, 2);  
                         oled.update();
-                        // oled.drawRect(10, 10, OLED_OPTS.width - 20, OLED_OPTS.height - 10, 1);
-                        for (let i = 0; i < 16; i++) {
-                            // oled.drawRect(i+1, i+1, OLED_OPTS.width - (i+1), OLED_OPTS.height - (i+1), 1);
-                            // oled.drawCircle(Math.floor(Math.random() * OLED_OPTS.width), Math.floor(Math.random() * OLED_OPTS.height), Math.floor(Math.random() * 30), 1);
-                        }
                     }, 5000);
 
                     setTimeout(() => {

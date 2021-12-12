@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/i3games/gm.git"
   },
-  "keywords": ["metaverse", "arduino", "tezos"],
+  "keywords": [
+    "metaverse",
+    "arduino",
+    "tezos"
+  ],
   "author": "crcdng",
   "license": "MIT",
   "bugs": {
@@ -20,6 +24,7 @@
   "dependencies": {
     "@microsoft/signalr": "^6.0.0",
     "johnny-five": "^2.1.0",
+    "oled-font-5x7": "^1.0.3",
     "oled-js": "^5.1.2"
   }
 }
