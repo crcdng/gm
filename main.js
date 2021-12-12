@@ -2,6 +2,7 @@ const signalR = require("@microsoft/signalr");
 const five = require("johnny-five");
 const board = new five.Board();
 const Oled = require('oled-js');
+const font = require('oled-font-5x7');
 
 const PIN_PIEZO = 11;
 const OLED_OPTS = {
@@ -75,11 +76,11 @@ board.on("ready", () => {
             for (let entry of data) {
                 if (entry.type === "transaction" && entry.status === "applied"
                     && entry.parameter.entrypoint === "collect"
-                    && entry.diffs[0].content.value.issuer == ACCOUNT       // note that === doesn't work
+                    // && entry.diffs[0].content.value.issuer == ACCOUNT       // note that === doesn't work
                     && entry.diffs[0].content.value.objkt_id == OBJKT_ID    // note that === doesn't work
                 ) {
                     const consoleMsg = `gm! Congratulations! OBJKT ${OBJKT_ID} got collected by ${entry.sender.address}`;
-                    console.log(collectMsg);
+                    console.log(consoleMsg);
                     // shorter message for 128x32 display
                     const displayMsg = `gm! OBJKT ${OBJKT_ID}/ ${entry.sender.address}`;
 
@@ -98,7 +99,7 @@ board.on("ready", () => {
                     }, 8000)
                     setTimeout(() => {
                         servo.stop();
-                    }, 16000)
+                    }, 16000);
                 }
             }
         } else if (msg.type === 2) {

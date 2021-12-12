@@ -1,5 +1,7 @@
 # gm!
 
+*Update: gm! received a prize at HACK THE METAVERSE by despace Berlin. A big thank you to anyone.*
+
 ### Connecting the virtual and physical metaverse in a playful manner.
 
 The metaverse - a concept originally from Neil Stephenson's sci-fi novel "Snow Crash" - has stirred debates and drawn strong views from commentators. Especially since large gaming and social media companies have started claiming the concept for themselves, criticism has peaked. However, some of the self-professed "metaverse critics" seem unaware that they inherently accept and confirm the takeover by dismissing the concept altogether, playing the game of [INSERT MEGACORP HERE]. 
