@@ -2,7 +2,7 @@
 
 ### Connecting the virtual and physical metaverse in a playful manner.
 
-The metaverse - a concept originally derived from Neil Stephenson's sci-fi novel "Snow Crash" - has stirred debates and drawn strong views from commentators. Especially since major gaming and social media companies have started claiming the concept for themselves, criticism has peaked. However, some of the self-professed "metaverse critics" seem unaware that they inherently accept and confirm the takeover by dismissing the concept altogether, playing the game of [INSERT MEGACORP HERE]. 
+The metaverse - a concept originally from Neil Stephenson's sci-fi novel "Snow Crash" - has stirred debates and drawn strong views from commentators. Especially since large gaming and social media companies have started claiming the concept for themselves, criticism has peaked. However, some of the self-professed "metaverse critics" seem unaware that they inherently accept and confirm the takeover by dismissing the concept altogether, playing the game of [INSERT MEGACORP HERE]. 
 
 A different mindset is to resist appropriation, with artists and hackers exploring *their ideas* what a metaverse could be instead, through communities, discussions and experimentation. Let's draw a distinction between these approaches. 
 
@@ -46,7 +46,7 @@ MIT License
 
 ### Prerequisites
 
-[node.js](https://nodejs.org/en/), libraries: SignalR, Johnny Five, oled-js, oled-font-5x7. Uses the TzKT API (v1.6.3) by Baking Bad Team https://api.tzkt.io/.
+[node.js](https://nodejs.org/en/), libraries: [SignalR](https://www.npmjs.com/package/@microsoft/signalr), [Johnny Five](http://johnny-five.io/), [oled-js](https://github.com/noopkat/oled-js), [oled-font-5x7](https://github.com/noopkat/oled-font-5x7). Uses the [TzKT API](https://api.tzkt.io/) (v1.6.3) by Baking Bad Team.
 
 To install, run 
 `npm install`

@@ -10,6 +10,25 @@ const OLED_OPTS = {
     address: 0x3C // see https://github.com/noopkat/oled-js how to determine the address
 };
 
+const melodyB5 = [
+    ["G3", 1 / 4],
+    [null, 1 / 8],
+    ["G3", 1 / 4],
+    [null, 1 / 8],
+    ["G3", 1 / 4],
+    [null, 1 / 8],
+    ["D#3", 2],   
+    [null, 2],
+    ["F3", 1 / 4],
+    [null, 1 / 8],
+    ["F3", 1 / 4],
+    [null, 1 / 8],
+    ["F3", 1 / 4],
+    [null, 1 / 8],
+    ["D3", 4], 
+    [null, 1 / 8]
+];  
+
 const CONTRACT_ADDRESS = "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"; // Hic et Nunc Marketplace
 
 // parameters to adapt
@@ -18,7 +37,7 @@ const OBJKT_ID = "181212";  // put your OBJKT ID here
 
 function playMelody(piezo, melody, bpm) {
     piezo.play({
-        song: melody,
+        song: melodyB5,
         tempo: bpm
     });
 }
@@ -64,26 +83,7 @@ board.on("ready", () => {
                     // shorter message for 128x32 display
                     const displayMsg = `gm! OBJKT ${OBJKT_ID}/ ${entry.sender.address}`;
 
-                    playMelody(piezo, [
-                        ["C4", 1 / 4],
-                        ["D4", 1 / 4],
-                        ["F4", 1 / 4],
-                        ["D4", 1 / 4],
-                        ["A4", 1 / 4],
-                        [null, 1 / 4],
-                        ["A4", 1],
-                        ["G4", 1],
-                        [null, 1 / 2],
-                        ["C4", 1 / 4],
-                        ["D4", 1 / 4],
-                        ["F4", 1 / 4],
-                        ["D4", 1 / 4],
-                        ["G4", 1 / 4],
-                        [null, 1 / 4],
-                        ["G4", 1],
-                        ["F4", 1],
-                        [null, 1 / 2]
-                    ], 100);
+                    playMelody(piezo, , 100);
 
                     setTimeout(() => {
                         oled.clearDisplay();
