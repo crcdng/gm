@@ -8,11 +8,11 @@ A different mindset is to resist appropriation, with artists and hackers explori
 
 While a metaverse understood in this way resists definition, some directions I think are interesting to explore:
    
-* ownership - green blockchain technology such as [Tezos](https://tezos.com/) enables us to experiment with alternative economic models 
-* mixed reality - the metaverse will bridge physical and digital manifestations through VR/AR/XR/IoT 
-* decentralization - a catastrophic DNS failure can bring down Facebook but it cannot stop [Hic et Nunc](https://github.com/i3games/hen-timeline/blob/main/timeline.md)
-* identities - we can play with multiple identities and avatars that persist beyond the realm of a specific world 
-* openness - open standards, open minds, open communities - it is time to get rid of old gatekeeping mindsets
+* **ownership** - green blockchain technology such as [Tezos](https://tezos.com/) enables us to experiment with alternative economic models 
+* **mixed reality** - the metaverse will bridge physical and digital manifestations through VR/AR/XR/IoT 
+* **decentralization** - a catastrophic DNS failure can bring down Facebook but it cannot stop [Hic et Nunc](https://github.com/i3games/hen-timeline/blob/main/timeline.md)
+* **identities** - we can play with multiple identities and avatars that persist beyond the realm of a specific world 
+* **openness** - open standards, open minds, open communities - it is time to get rid of old gatekeeping mindsets
 
 This small prototype attempts to embody the first two of these, to make the collection of an OBJKT (an NFT on Hic et Nunc) more playful and to delight the artist whose piece is collected. 
 
@@ -26,7 +26,7 @@ Technically, it works by subscribing to a service, listening to collect transact
 
 Some next steps: thorough testing, making the code more robust against errors, adding more redundancy for collection detection (it sometimes seems to miss one), adding a front end for entering OBJKT numbers, supporting more contracts.    
 
-From this small prototype, imagine what we can do in future iterations: trigger a massage ([a friend of mine makes soft robots that can do this](https://feuetbois.net/)), play sound from a synthesizer or start a little robot that stops by and says "gm!" (gm stands for "Good Morning", a friendy phrase in the community). Imagine you create a different effect for each of your OBJKTs. It is up to you what it can do, only limited by your imagination.  
+From this small prototype, imagine what we can do in future iterations: play sound from a synthesizer, trigger a massage ([a friend of mine makes soft robots that can do this](https://feuetbois.net/)), or start a little robot that stops by and says "gm!" (gm stands for "Good Morning", a friendy phrase in the community). Imagine how you create a different effect for each of your OBJKTs. It is up to you what it can do, only limited by your imagination.  
 
 ---
 

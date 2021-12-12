@@ -83,7 +83,7 @@ board.on("ready", () => {
                     // shorter message for 128x32 display
                     const displayMsg = `gm! OBJKT ${OBJKT_ID}/ ${entry.sender.address}`;
 
-                    playMelody(piezo, , 100);
+                    playMelody(piezo, melodyB5, 100);
 
                     setTimeout(() => {
                         oled.clearDisplay();
