@@ -21,6 +21,7 @@ Install Raspbian Light
 
 > git clone https://github.com/i3games/gm.git    
 > cd gm    
+> npm install        
 
 ## connect the Arduino via USB to the Raspberry Pi
 
