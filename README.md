@@ -1,6 +1,10 @@
 # gm!
 
-*Update: gm! received a prize at HACK THE METAVERSE by despace Berlin. A big thank you to anyone.*
+Here is a video:
+https://youtu.be/Fhfa-V7M3dk
+
+
+*Update: gm! received a prize at HACK THE METAVERSE by [despace Berlin](https://www.despace.berlin/). A big thank you to anyone.*
 
 ### Connecting the virtual and physical metaverse in a playful manner.
 
