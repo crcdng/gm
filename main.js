@@ -4,6 +4,9 @@ const board = new five.Board();
 const Oled = require('oled-js');
 const font = require('oled-font-5x7');
 
+const fs = require('fs'); // for logging
+const util = require('util'); // for logging
+
 const PIN_PIEZO = 11;
 const OLED_OPTS = {
     width: 128,
@@ -45,6 +48,14 @@ function playMelody(piezo, melody, bpm) {
 
 board.on("ready", () => {
 
+    // useful for debugging
+    function log () {
+        logFile.write(util.format.apply(null, arguments) + '\n');
+        // logStdout.write(util.format.apply(null, arguments) + '\n');
+    }
+    const logFile = fs.createWriteStream('logs/log.txt', { flags: 'a' });
+    const logStdout = process.stdout;
+
     const piezo = new five.Piezo(PIN_PIEZO);
     const servo = new five.Servo(10);
     const oled = new Oled(board, five, OLED_OPTS);
@@ -72,6 +83,9 @@ board.on("ready", () => {
         } else if (msg.type === 1) {
 
             const data = msg.data;
+
+            // logging the incoming message
+            log(data);
 
             for (let entry of data) {
                 if (entry.type === "transaction" && entry.status === "applied"
