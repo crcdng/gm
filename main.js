@@ -48,13 +48,13 @@ function playMelody(piezo, melody, bpm) {
 
 board.on("ready", () => {
 
-    // useful for debugging
-    function log () {
-        logFile.write(util.format.apply(null, arguments) + '\n');
-        // logStdout.write(util.format.apply(null, arguments) + '\n');
-    }
-    const logFile = fs.createWriteStream('logs/log.txt', { flags: 'a' });
-    const logStdout = process.stdout;
+    // useful for debugging, uncomment to log
+    // function log () {
+    //     logFile.write(util.format.apply(null, arguments) + '\n');
+    //     // logStdout.write(util.format.apply(null, arguments) + '\n');
+    // }
+    // const logFile = fs.createWriteStream('logs/log.txt', { flags: 'a' });
+    // const logStdout = process.stdout;
 
     const piezo = new five.Piezo(PIN_PIEZO);
     const servo = new five.Servo(10);
@@ -84,7 +84,7 @@ board.on("ready", () => {
 
             const data = msg.data;
 
-            // logging the incoming message
+            // logging the incoming message, uncomment to log
             // log(data);
 
             for (let entry of data) {
