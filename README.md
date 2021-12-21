@@ -78,5 +78,7 @@ Wiring schema
 
 ![](assets/arduino_schema.jpg)
 
+The server can run on a Raspberry Pi, see `RaspberryPi.md`
+
 Questions? Twitter! [@crcdng](https://twitter.com/crcdng)
 

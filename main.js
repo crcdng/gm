@@ -85,7 +85,7 @@ board.on("ready", () => {
             const data = msg.data;
 
             // logging the incoming message
-            log(data);
+            // log(data);
 
             for (let entry of data) {
                 if (entry.type === "transaction" && entry.status === "applied"
